@@ -49,7 +49,7 @@ class Country(models.Model):
   _name = 'school.country'
   _description = 'Country Management'
 
-  country = fields.String('Country',size=60,required=True)
+  name = fields.Char('Country',size=60,required=True)
   teacher_ids = fields.One2many('school.teacher','country_id','Teachers managed',
                                  readonly=True)
 
