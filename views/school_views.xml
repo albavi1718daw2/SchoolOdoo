@@ -216,7 +216,7 @@
       <field name="model">school.country</field>
       <field name="type">tree</field>
       <field name="arch" type="xml">
-        <tree string="Teachers">
+        <tree string="Countries">
           <field name="name"/>
         </tree>
       </field>
@@ -244,7 +244,7 @@
     </record>
 
     <menuitem name="Countries" id="menu_country"
-              parent="menu_root" action="action_country"/>
+              parent="menu_configuration" action="action_country"/>
 
   </data>
 </odoo>
