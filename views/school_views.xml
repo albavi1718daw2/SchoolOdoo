@@ -1,0 +1,215 @@
+<odoo>
+  <data>
+  
+    <menuitem name="School" id="menu_root"/>
+    <menuitem name="Configuration" id="menu_configuration"
+              parent="menu_root" sequence="90"/>
+    
+    
+    <record model="ir.ui.view" id="view_course_tree">
+      <field name="name">view.course.tree</field>
+      <field name="model">school.course</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Courses">
+          <field name="name"/>
+          <field name="hours"/>
+          <field name="active"/>
+          <field name="manager_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_course_form">
+      <field name="name">view.course.form</field>
+      <field name="model">school.course</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Course">
+          <group col="4">
+            <field name="name" colspan="4"/>
+            <field name="hours"/>
+            <field name="active"/>
+            <field name="manager_id"/>
+            <newline/>
+            <separator string="Subjects"/>
+            <newline/>
+            <field name="subject_ids" nolabel="1" colspan="2">
+              <tree>
+                <field name="name"/>
+                <field name="hours"/>
+              </tree>
+              <form string="Subject">
+                <group col="4">
+                  <field name="name" colspan="4"/>
+                  <field name="hours"/>
+                  <div colspan="2"/>
+                </group>
+              </form>
+            </field>
+          </group>
+        </form>
+      </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="action_course">
+      <field name="name">Courses</field>
+      <field name="res_model">school.course</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem name="Courses" id="menu_course"
+              parent="menu_configuration" action="action_course"/>
+    
+    <record model="ir.ui.view" id="view_subject_tree">
+      <field name="name">view.subject.tree</field>
+      <field name="model">school.subject</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Subjects">
+          <field name="name"/>
+          <field name="hours"/>
+          <field name="active"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_subject_form">
+      <field name="name">view.subject.form</field>
+      <field name="model">school.subject</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Subject">
+          <group col="4">
+            <group colspan="4" col="4">
+              <field name="name" colspan="4"/>
+              <field name="hours"/>
+              <field name="active"/>
+            </group>
+            <group colpan="2" col="2" style="width:40%">
+              <separator string="Courses"/>
+              <newline/>
+              <field name="course_ids" nolabel="1" colspan="2">
+                <tree>
+                  <field name="name"/>
+                  <field name="hours"/>
+                  <field name="manager_id"/>
+                </tree>
+                <form string="Course">
+                  <group col="4">
+                    <field name="name" colspan="4"/>
+                    <field name="hours"/>
+                    <div colspan="2"/>
+                  </group>
+                </form>
+              </field>
+            </group>
+            <group colpan="" col="2" style="width:60%">
+              <separator string="Authorithed Teachers"/>
+              <newline/>
+              <field name="teacher_ids" nolabel="1" colspan="2">
+                <tree>
+                  <field name="first_name"/>
+                  <field name="last_name"/>
+                  <field name="phone"/>
+                  <field name="email" widget="email"/>
+                </tree>
+              </field>
+            </group>
+          </group>
+        </form>
+      </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="action_subject">
+      <field name="name">Subjects</field>
+      <field name="res_model">school.subject</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem name="Subjects" id="menu_subject"
+              parent="menu_configuration" action="action_subject"/>
+
+    <record model="ir.ui.view" id="view_teacher_tree">
+      <field name="name">View Teacher Tree</field>
+      <field name="model">school.teacher</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Teachers">
+          <field name="first_name"/>
+          <field name="last_name"/>
+          <field name="birthdate"/>
+          <field name="tin"/>
+          <field name="gender"/>
+          <field name="phone"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_teacher_form">
+      <field name="name">View Teacher Form</field>
+      <field name="model">school.teacher</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Teachers">
+          <group col="8">
+            <group colspan="8" col="8">
+              <field name="first_name" colspan="4"/>
+              <field name="last_name" colspan="4"/>
+              <field name="birthdate" widget="date"/>
+              <field name="gender"/>
+              <field name="tin"/>
+              <field name="salary"/>
+              <field name="email" colspan="4" widget="email"/>
+              <field name="phone"/> 
+              <field name="active"/>
+            </group>
+            <group colspan="4" col="4" style="width:40%">
+              <separator string="Courses managed" colspan="4"/>
+              <field name="course_ids" nolabel="1" colspan="4" readonly="0"
+                     widget="many2many">
+                <tree>
+                  <field name="name"/>
+                  <field name="hours"/>
+                </tree>
+                <form string="Course">
+                  <group col="4">
+                    <field name="name" colspan="4"/>
+                    <field name="hours"/>
+                    <div colspan="2"/>  <!-- Per completar fila!!! --> 
+                  </group>
+                </form>              
+              </field>
+            </group>
+            <group colspan="4" col="4" style="width:60%">
+              <separator string="Authorithed Subjects" colspan="4"/>
+              <field name="subject_ids" nolabel="1" colspan="4" readonly="0">
+                <tree>
+                  <field name="name"/>
+                  <field name="hours"/>
+                </tree>
+                <form string="Subject">
+                  <group col="4">
+                    <field name="name" colspan="4"/>
+                    <field name="hours"/>
+                    <div colspan="2"/>
+                  </group>
+                </form>                
+              </field>
+            </group>
+          </group>
+        </form>
+      </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="action_teacher">
+      <field name="name">Teachers</field>
+      <field name="res_model">school.teacher</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Teachers" id="menu_teacher"
+              parent="menu_root" action="action_teacher"/>
+
+  </data>
+</odoo>
