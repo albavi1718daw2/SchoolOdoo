@@ -211,40 +211,5 @@
     <menuitem name="Teachers" id="menu_teacher"
               parent="menu_root" action="action_teacher"/>
 
-    <record model="ir.ui.view" id="view_country_tree">
-      <field name="name">View Country Tree</field>
-      <field name="model">school.country</field>
-      <field name="type">tree</field>
-      <field name="arch" type="xml">
-        <tree string="Countries">
-          <field name="name"/>
-        </tree>
-      </field>
-    </record>
-
-    <record model="ir.ui.view" id="view_country_form">
-      <field name="name">View Country Form</field>
-      <field name="model">school.country</field>
-      <field name="type">form</field>
-      <field name="arch" type="xml">
-        <form string="Countries">
-          <group col="8">
-            <group colspan="8" col="8">
-              <field name="name" colspan="4"/>
-            </group>
-          </group>
-        </form>
-      </field>
-    </record>
-
-    <record model="ir.actions.act_window" id="action_country">
-      <field name="name">Countries</field>
-      <field name="res_model">school.country</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-
-    <menuitem name="Countries" id="menu_country"
-              parent="menu_configuration" action="action_country"/>
-
   </data>
 </odoo>
