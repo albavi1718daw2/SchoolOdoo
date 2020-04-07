@@ -197,14 +197,6 @@
                 </form>                
               </field>
             </group>
-            <group colspan="4" col="4" style="width:60%">
-              <separator string="Teacher country" colspan="4"/>
-              <field name="country_ids" colspan="4">
-                <tree>
-                  <field name="name"/>
-                </tree>
-              </field>
-            </group>
           </group>
         </form>
       </field>
