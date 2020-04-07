@@ -241,7 +241,7 @@
       <field name="model">school.country</field>
       <field name="type">form</field>
       <field name="arch" type="xml">
-        <form string="Countries">
+        <form string="Country">
           <group col="8">
             <group colspan="8" col="8">
               <field name="name" colspan="4"/>
