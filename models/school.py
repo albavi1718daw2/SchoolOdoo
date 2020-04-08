@@ -30,6 +30,7 @@ class Course(models.Model):
   hours = fields.Integer('Hours',required=True)
   active = fields.Boolean('Active?',default=True)
   manager_id = fields.Many2one('school.teacher','Teacher Manager')
+  thematic_id = fields.Many2one('school.thematic','Thematic Manager')
   subject_ids = fields.Many2many('school.subject','school_course_subject_rel',
                                  'course_id','subject_id','Subjects')
 
