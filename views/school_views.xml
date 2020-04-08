@@ -16,6 +16,7 @@
           <field name="hours"/>
           <field name="active"/>
           <field name="manager_id"/>
+          <field name="thematic_id"/>
         </tree>
       </field>
     </record>
@@ -31,6 +32,7 @@
             <field name="hours"/>
             <field name="active"/>
             <field name="manager_id"/>
+            <field name="thematic_id"/>
             <newline/>
             <separator string="Subjects"/>
             <newline/>
