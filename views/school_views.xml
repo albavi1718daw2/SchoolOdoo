@@ -142,6 +142,8 @@
           <field name="tin"/>
           <field name="gender"/>
           <field name="phone"/>
+          <field name="phone"/>
+          <field name="country_id"/>
         </tree>
       </field>
     </record>
@@ -161,7 +163,8 @@
               <field name="tin"/>
               <field name="salary"/>
               <field name="email" colspan="4" widget="email"/>
-              <field name="phone"/> 
+              <field name="phone"/>
+              <field name="country_id"/>
               <field name="active"/>
             </group>
             <group colspan="4" col="4" style="width:40%">
