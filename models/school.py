@@ -30,9 +30,9 @@ class Course(models.Model):
   hours = fields.Integer('Hours',required=True)
   active = fields.Boolean('Active?',default=True)
   manager_id = fields.Many2one('school.teacher','Teacher Manager')
-  thematic_id = fields.Many2one('school.thematic','Thematic Manager')
   subject_ids = fields.Many2many('school.subject','school_course_subject_rel',
                                  'course_id','subject_id','Subjects')
+  thematic_id = fields.Many2one('school.thematic','Thematic Manager')
 
 class Subject(models.Model):
   _name = 'school.subject'
@@ -46,7 +46,7 @@ class Subject(models.Model):
   teacher_ids = fields.Many2many('school.teacher','school_subject_teacher_rel','subject_id','teacher_id',
                                  'Authorized Teachers',readonly=True)
 
-class Country(models.Model):
+class Course(models.Model):
   _name = 'school.country'
   _description = 'Country Management'
 
