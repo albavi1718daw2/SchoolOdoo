@@ -61,5 +61,5 @@ class Thematic(models.Model):
   _rec_name = 'name'
 
   name = fields.Char('Name',size=60,required=True)
-  teacher_ids = fields.One2many('school.course','thematic_id','Teacher managed',
+  course_ids = fields.One2many('school.course','thematic_id','Course managed',
                                  readonly=True)
