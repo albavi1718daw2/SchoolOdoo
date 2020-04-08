@@ -49,7 +49,6 @@ class Subject(models.Model):
 class Country(models.Model):
   _name = 'school.country'
   _description = 'Country Management'
-  _rec_name = 'country'
 
   country = fields.Char('Country',size=60,required=True)
   teacher_ids = fields.One2many('school.teacher','country_id','Teacher managed',
@@ -58,7 +57,6 @@ class Country(models.Model):
 class Thematic(models.Model):
   _name = 'school.thematic'
   _description = 'Thematic Management'
-  _rec_name = 'name'
 
   name = fields.Char('Name',size=60,required=True)
   course_ids = fields.One2many('school.course','thematic_id','Course managed',
