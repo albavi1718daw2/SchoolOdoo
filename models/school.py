@@ -45,11 +45,20 @@ class Subject(models.Model):
   teacher_ids = fields.Many2many('school.teacher','school_subject_teacher_rel','subject_id','teacher_id',
                                  'Authorized Teachers',readonly=True)
 
-class Course(models.Model):
+class Country(models.Model):
   _name = 'school.country'
   _description = 'Country Management'
+  _rec_name = 'country'
 
   country = fields.Char('Country',size=60,required=True)
   teacher_ids = fields.One2many('school.teacher','country_id','Teacher managed',
                                  readonly=True)
 
+class Thematic(models.Model):
+  _name = 'school.thematic'
+  _description = 'Thematic Management'
+  _rec_name = 'name'
+
+  name = fields.Char('Name',size=60,required=True)
+  teacher_ids = fields.One2many('school.course','thematic_id','Teacher managed',
+                                 readonly=True)
